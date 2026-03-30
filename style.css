@@ -1,0 +1,210 @@
+:root{
+    --time-fast: 160ms;
+    --time-mid: 260ms;
+    --ease-smooth: cubic-bezier(0.2, 0.75, 0.3, 1);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(#9e7ddc,#bc97d9);
+    font-family: "Poppins", serif;
+}
+
+.mainBox{
+    height: 500px;
+    width: 350px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #1a2344, #8a4dad);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.mainBox1{
+    animation : card-enter 420ms var(--ease-smooth) 0.2s;
+}
+
+.weather{
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 20px;
+
+}
+.ForeCasts{
+   font-size: 50px;
+   font-weight: 300;
+   color: #DDB130;
+}
+
+.start,.homeBtn{
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: #DDB130;
+    color: black;
+    border: none;
+    outline: none;
+    transition: transform var(--time-fast) var(--ease-smooth), filter var(--time-fast) ease, box-shadow var(--time-fast) ease;
+    cursor: pointer;
+}
+.start:hover,.homeBtn:hover{
+    transform: translateY(-1px);
+    filter: saturate(1.1);
+    box-shadow: 0 10px 18px #934fb3;
+    
+}
+
+.start:active,.homeBtn:active{
+    transform: translateY(0);
+}
+
+.searchBox{
+    height: 40px;
+    width: 280px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.searchBox input{
+    width: 230px;
+    height: 40px;
+    outline: none;
+    border-radius: 8px;
+    padding-left: 10px;
+    border: none;
+}
+
+.img{
+    display:  flex;
+    align-items: center;
+}
+
+.img img{
+    width: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.iconBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.iconBox img{
+    width: 180px;
+}
+
+.tempBox{
+    height: 100px;
+    width: 280px;
+    text-align: center;
+}
+
+#temp{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+}
+#city{
+    font-size: 30px;
+    font-weight: 300;
+    color:#DDB130;
+}
+
+.extraDetails{
+    height: 100px;
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wind,.humidity{
+    display: flex;
+    align-items: center;
+}
+
+#windIcon,#humidityIcon{
+    width: 50px;
+    margin-right: 5px;
+}
+
+#windSpeed,#humidityper{
+    font-weight: bold;
+}
+
+#info{
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.inactive{
+    display: none;
+}
+
+.loadingOverlay{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(8 14 34 / 52%);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+}
+
+.loadingOverlay.hidden{
+    display: none;
+}
+
+.loadingCard{
+    min-width: 220px;
+    padding: 18px 22px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #1a2344, #40295a);
+    border: 1px solid rgb(255 255 255 / 20%);
+    color: white;
+    text-align: center;
+}
+
+.spinner{
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 10px;
+    border: 4px solid rgb(255 255 255 / 30%);
+    border-top-color: #30dd58;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes card-enter{
+    from{
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
